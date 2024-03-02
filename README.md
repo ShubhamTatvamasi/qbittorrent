@@ -10,3 +10,12 @@ docker logs qbittorrent
 ```
 
 password: adminadmin
+
+
+```bash
+cd qbittorrent/downloads
+
+# ln -s TARGET LINK_NAME
+ln -s example.mp4 a.mp4
+```
+
