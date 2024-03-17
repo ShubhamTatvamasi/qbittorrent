@@ -1,5 +1,5 @@
 ---
-version: "2.1"
+version: '3.8'
 services:
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent
@@ -16,4 +16,13 @@ services:
       - 8080:8080
       - 6881:6881
       - 6881:6881/udp
+    restart: unless-stopped
+
+  nginx:
+    image: shubhamtatvamasi/nginx-file-explorer
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./downloads:/home/:ro
     restart: unless-stopped
