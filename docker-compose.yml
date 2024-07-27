@@ -26,3 +26,15 @@ services:
     volumes:
       - ./downloads:/home/:ro
     restart: unless-stopped
+
+  ftp:
+    image: metabrainz/docker-anon-ftp
+    container_name: ftp
+    ports:
+      - "20-21:20-21"
+      - "65500-65515:65500-65515"
+    volumes:
+      - - ./downloads:/var/ftp:ro
+    environment:
+      - PASV_ADDRESS=192.168.1.212
+    restart: unless-stopped
